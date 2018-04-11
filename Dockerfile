@@ -1,4 +1,4 @@
-FROM node:8
+FROM node:8-slim
 
 RUN apt-get update && \
     apt-get install -y \
@@ -10,5 +10,6 @@ RUN apt-get update && \
     libasound2 \
     xvfb && \
     yarn global add cypress && \
-    rm -rf /var/lib/apt/lists/* /var/apt/cache/* /tmp/*
+    rm -rf /var/lib/apt/lists/* /var/apt/cache/* /tmp/* && \
+    yarn cache clean
 
